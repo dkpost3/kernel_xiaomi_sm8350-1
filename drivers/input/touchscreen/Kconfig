@@ -1353,4 +1353,6 @@ source "drivers/input/touchscreen/synaptics_s3908p/Kconfig"
 
 source "drivers/input/touchscreen/xiaomi/Kconfig"
 
+source "drivers/input/touchscreen/gt9916_m20/Kconfig"
+
 endif
