@@ -386,6 +386,31 @@
 		reg = <0x0 0x8f000000 0x0 0x10000000>;
 	};
 
+	hyp_reserved_mem: qheebsp_dbg_vm_hyp_region@d0000000 {
+		no-map;
+		reg = <0x0 0xd0000000 0x0 0x800000>;
+	};
+
+	pil_trustedvm_mem: pil_trustedvm_region@d0800000 {
+		no-map;
+		reg = <0x0 0xd0800000 0x0 0x76f7000>;
+	};
+
+	qrtr_shbuf: qrtr-shmem {
+		no-map;
+		reg = <0x0 0xd7ef7000 0x0 0x9000>;
+	};
+
+	chan0_shbuf: neuron_block@0 {
+		no-map;
+		reg = <0x0 0xd7f00000 0x0 0x80000>;
+	};
+
+	chan1_shbuf: neuron_block@1 {
+		no-map;
+		reg = <0x0 0xd7f80000 0x0 0x80000>;
+	};
+
 	removed_mem: removed_region@d8800000 {
 		no-map;
 		reg = <0x0 0xd8800000 0x0 0xA000000>;
