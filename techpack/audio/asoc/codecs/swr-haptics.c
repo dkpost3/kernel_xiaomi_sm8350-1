@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0-only
 /*
  * Copyright (c) 2020-2021, The Linux Foundation. All rights reserved.
- * Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
  */
 
 #include <linux/device.h>
@@ -561,6 +560,7 @@ static int hap_enable_swr_dac_port(struct snd_soc_dapm_widget *w,
 
 		swr_slvdev_datapath_control(swr_hap->swr_slave,
 				swr_hap->swr_slave->dev_num, true);
+
 		/* trigger SWR play */
 		val = SWR_PLAY_BIT | SWR_PLAY_SRC_VAL_SWR;
 		rc = regmap_write(swr_hap->regmap, SWR_PLAY_REG, val);
@@ -918,6 +918,7 @@ static int swr_haptics_suspend(struct device *dev)
 		dev_err(dev, "%s: no data for swr_hap\n", __func__);
 		return -ENODEV;
 	}
+	trace_printk("%s: suspended\n", __func__);
 
 	return rc;
 }
@@ -932,6 +933,7 @@ static int swr_haptics_resume(struct device *dev)
 		dev_err(dev, "%s: no data for swr_hap\n", __func__);
 		return -ENODEV;
 	}
+	trace_printk("%s: resumed\n", __func__);
 
 	return rc;
 }
